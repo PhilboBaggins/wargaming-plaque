@@ -29,8 +29,8 @@ module Plaque(
         cube(size, center = true);
 
         // Frame
-        translate([0, 0, frameSize[2]/2])
-        cube(size - frameSize, center = true);
+        translate([0, 0, frameSize[2] / 2 + 0.05])
+        cube(size - frameSize + [0, 0,  + 0.1], center = true);
     }
 
     // Rivets - X
