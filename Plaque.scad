@@ -1,6 +1,7 @@
 
 DEFAULT_SIZE = [20, 10, 1]; // Height value includes frame height
 DEFAULT_FRAME_SIZE = [2, 2, 0.5];
+DEFAULT_COLOUR = "grey";
 
 DEFAULT_RIVET_RADIUS = 0.3;
 DEFAULT_RIVET_HEIGHT = 0.2;
@@ -20,8 +21,10 @@ module Plaque(
     rivetHeight = DEFAULT_RIVET_HEIGHT,
     rivetSides =  DEFAULT_RIVET_SIDES,
     numXRivets = DEFAULT_NUM_X_RIVETS,
-    numYRivets = DEFAULT_NUM_Y_RIVETS)
+    numYRivets = DEFAULT_NUM_Y_RIVETS,
+    colour = DEFAULT_COLOUR)
 {
+    color(colour)
     translate([0, 0, size[2] / 2])
     difference()
     {
@@ -35,6 +38,7 @@ module Plaque(
 
     // Rivets - X
     y = size[1] / 2 - frameSize[1] / 4;
+    color(colour)
     translate([-size[0] / 2 + frameSize[0] / 4, 0, size[2]])
     for (x = [0 : numXRivets - 1])
     {
@@ -45,6 +49,7 @@ module Plaque(
 
     // Rivets - Y
     x = size[0] / 2 - frameSize[0] / 4;
+    color(colour)
     translate([0, -size[1] / 2 + frameSize[1] / 4, size[2]])
     for (y = [0 : numYRivets - 1])
     {
